@@ -1,53 +1,50 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 150.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+enum PLAYER_STATE {
+	MOVE,
+	ATTACK
+}
 
 # Global nodes
 @onready var anim = get_node("AnimationPlayer")
+@onready var sprite = get_node("AnimatedSprite2D")
+@onready var state = PLAYER_STATE.MOVE
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		anim.play("Jump")
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	match state:
+		PLAYER_STATE.MOVE:
+			on_move(delta)
+		PLAYER_STATE.ATTACK:
+			on_attack()
 	
+func on_move(delta):
+	velocity.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	velocity.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	velocity = velocity.normalized()
+	
+	var direction = Input.get_axis("ui_left", "ui_right")
 	# Set animation direction
 	if direction == -1:
-		get_node("AnimatedSprite2D").flip_h = true
+		sprite.flip_h = true
 	elif direction == 1:
-		get_node("AnimatedSprite2D").flip_h = false
+		sprite.flip_h = false
 	
-	if direction:
-		velocity.x = direction * SPEED
-		# Only play run if on the ground
-		if velocity.y == 0:
-			anim.play("Run")
+	if velocity:
+		anim.play("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if velocity.y == 0:
-			anim.play("Idle")	
+		anim.play("Idle")
 	
-	# Falling
-	if velocity.y > 0:
-		anim.play("Fall")
-
+	velocity *= SPEED
 	move_and_slide()
+	
+	if Input.is_key_pressed(KEY_SPACE):
+		state = PLAYER_STATE.ATTACK
 
+func on_attack():
+	anim.play("Attack")
 
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ESCAPE:
-			get_tree().quit()
+func on_attack_exit():
+	state = PLAYER_STATE.MOVE
