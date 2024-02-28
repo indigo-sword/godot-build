@@ -1265,3 +1265,11 @@ layer_0/tile_data = PackedInt32Array(2555904, 65536, 1, 2621440, 65536, 1, 25559
 
 [node name="Player" parent="." instance=ExtResource("1_ap5fb")]
 position = Vector2(590, 269)
+
+[node name="Level Editor" type="Node2D" parent="."]
+
+[node name="Editor Object" type="Node2D" parent="Level Editor"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level Editor/Editor Object"]
+
+[node name="Level" type="Node2D" parent="Level Editor"]

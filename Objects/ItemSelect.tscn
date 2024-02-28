@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2gktubwv2dnd"]
+
+[ext_resource type="PackedScene" uid="uid://bokovboevqlbb" path="res://Items/item_rock.tscn" id="1_mokgl"]
+[ext_resource type="Script" path="res://Objects/TabContainer.gd" id="1_ygx0y"]
+
+[node name="Item_Select" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1189.0
+offset_bottom = 716.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.94
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -541.464
+offset_bottom = -287.04
+current_tab = 1
+script = ExtResource("1_ygx0y")
+
+[node name="Spikes" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Spikes"]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 52.0
+offset_right = 612.0
+offset_bottom = 376.0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Spikes/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Spikes/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="item_rock" parent="TabContainer/Spikes/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_mokgl")]
+layout_mode = 2
+
+[node name="Characters" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Characters"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.733
+anchor_bottom = 0.591
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1.58789
+offset_bottom = 2.724
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Characters/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Characters/ScrollContainer/VBoxContainer"]
+layout_mode = 2

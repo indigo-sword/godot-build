@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bokovboevqlbb"]
+
+[ext_resource type="PackedScene" uid="uid://bwwa8n7r8pb0f" path="res://Objects/ItemTexture.tscn" id="1_ekm8r"]
+[ext_resource type="Texture2D" uid="uid://f76dpwcqkt8a" path="res://Assets/World/decorations/rock_3.png" id="2_g0cff"]
+
+[node name="item_rock" instance=ExtResource("1_ekm8r")]
+offset_right = 2965.0
+offset_bottom = 2781.0
+texture = ExtResource("2_g0cff")

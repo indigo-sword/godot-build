@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhhqm1n36iw0k"]
+
+[ext_resource type="PackedScene" uid="uid://dnmbabjtf453g" path="res://Objects/Entity.tscn" id="1_4chsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7avxs"]
+
+[node name="Rock" instance=ExtResource("1_4chsy")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_7avxs")

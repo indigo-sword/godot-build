@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh181gaxep2a2"]
+
+[ext_resource type="Script" path="res://Scenes/Editor Object.gd" id="1_1jf23"]
+[ext_resource type="PackedScene" uid="uid://d2gktubwv2dnd" path="res://Objects/ItemSelect.tscn" id="2_voogw"]
+
+[node name="LevelEditor" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Editor_Object" type="Node2D" parent="."]
+position = Vector2(63, 55)
+script = ExtResource("1_1jf23")
+
+[node name="Sprite" type="Sprite2D" parent="Editor_Object"]
+
+[node name="Item_Select" parent="." instance=ExtResource("2_voogw")]
+unique_name_in_owner = true
+visible = false
+offset_top = 1.0
