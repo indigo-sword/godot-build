@@ -6,31 +6,32 @@
 [node name="Item_Select" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1189.0
-offset_bottom = 716.0
+offset_left = 6.0
+offset_top = 175.0
+offset_right = 1195.0
+offset_bottom = 632.0
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.976
 anchor_bottom = 0.94
-offset_left = 2.0
-offset_top = 2.0
-offset_right = -541.464
-offset_bottom = -287.04
+offset_left = 23.0
+offset_top = 161.0
+offset_right = -196.464
+offset_bottom = 31.42
 current_tab = 1
 script = ExtResource("1_ygx0y")
 
 [node name="Spikes" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Spikes"]
 layout_mode = 1
-offset_left = 9.0
-offset_top = 52.0
-offset_right = 612.0
-offset_bottom = 376.0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 928.0
+offset_bottom = 287.0
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 2
 

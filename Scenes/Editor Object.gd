@@ -2,7 +2,7 @@ extends Node2D
 
 var can_place = true
 @onready var level = get_node("../Level")
-var current_item
+var current_item 
 
 
 # Called when the node enters the scene tree for the first time.

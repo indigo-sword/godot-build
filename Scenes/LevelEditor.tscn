@@ -16,5 +16,4 @@ script = ExtResource("1_1jf23")
 
 [node name="Item_Select" parent="." instance=ExtResource("2_voogw")]
 unique_name_in_owner = true
-visible = false
 offset_top = 1.0
