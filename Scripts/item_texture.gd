@@ -13,21 +13,21 @@ func _ready():
 	pass # Replace with function body.
 
 func _item_clicked(event):
-	#if (event is InputEvent):
-		#if (event.is_action_pressed("ui_left")):
-			#object_cursor.current_item = this_scene
-			#cursor_sprite.texture = texture
 	if (event is InputEvent):
-		if(event.is_action_released("ui_left")):
+		if (event.is_action_pressed("ui_left")):
+			object_cursor.current_item = this_scene
+			cursor_sprite.texture = texture
+	if (event is InputEventMouseButton):
+		if(event.pressed):
 			print("Mouse entered")
 			object_cursor.current_item = this_scene
 			cursor_sprite.texture = texture
-			#object_cursor.can_place = true
-		#elif(event.is_action_released("ui_right")):
-			#print("Mouse released")
-			#object_cursor.can_place = false
-			#object_cursor.current_item = null
-			#cursor_sprite.texture = null
+			object_cursor.can_place = true
+		elif(!event.pressed):
+			print("Mouse released")
+			object_cursor.can_place = false
+			object_cursor.current_item = null
+			cursor_sprite.texture = null
 	pass
 
 
