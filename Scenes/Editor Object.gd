@@ -1,7 +1,7 @@
 extends Node2D
 
 var can_place = true
-@onready var level = get_node("../Level")
+@onready var level = get_node("/root/LevelEditor/Level")
 var current_item 
 
 

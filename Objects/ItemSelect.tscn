@@ -24,6 +24,7 @@ current_tab = 1
 script = ExtResource("1_ygx0y")
 
 [node name="Spikes" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Spikes"]

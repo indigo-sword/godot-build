@@ -22,12 +22,12 @@ func _item_clicked(event):
 			print("Mouse entered")
 			object_cursor.current_item = this_scene
 			cursor_sprite.texture = texture
-			object_cursor.can_place = true
-		elif(event.is_action_released("ui_right")):
-			print("Mouse released")
-			object_cursor.can_place = false
-			object_cursor.current_item = null
-			cursor_sprite.texture = null
+			#object_cursor.can_place = true
+		#elif(event.is_action_released("ui_right")):
+			#print("Mouse released")
+			#object_cursor.can_place = false
+			#object_cursor.current_item = null
+			#cursor_sprite.texture = null
 	pass
 
 
