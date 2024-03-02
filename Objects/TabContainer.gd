@@ -14,9 +14,7 @@ func _ready():
 func _on_mouse_entered():
 	print("Mouse entered")
 	object_cursor.can_place = false
-	pass
 	
 func _on_mouse_exited():
 	print("Mouse exited")
 	object_cursor.can_place = true
-	pass
